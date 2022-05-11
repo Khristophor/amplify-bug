@@ -1,0 +1,6 @@
+src\models
+src/models
+build/*
+public/*
+node_modules/*
+amplify/*

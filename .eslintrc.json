@@ -1,0 +1,125 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true
+  },
+  "extends": [
+    "airbnb",
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "prettier",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 5,
+    "project": "./tsconfig.eslint.json",
+    "sourceType": "module"
+  },
+  "plugins": ["prettier", "@typescript-eslint"],
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "./tsconfig.eslint.json"
+      }
+    }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.stories.*"],
+      "rules": {
+        "import/no-anonymous-default-export": 0
+      }
+    }
+  ],
+  "rules": {
+    "no-nested-ternary": 0,
+    "react/prop-types": 0,
+    "react/require-default-props": 0,
+    "react/jsx-uses-react": 0,
+    "react/react-in-jsx-scope": 0,
+    "react/jsx-props-no-spreading": [
+      2,
+      {
+        "html": "enforce",
+        "custom": "ignore"
+      }
+    ],
+    "import/prefer-default-export": 0,
+    "react/jsx-boolean-value": 0,
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "no-console": [2, { "allow": ["warn", "error"] }],
+    "no-plusplus": [2, { "allowForLoopAfterthoughts": true }],
+    "import/no-extraneous-dependencies": [
+      2,
+      {
+        "devDependencies": [
+          "src/**/*.test.ts",
+          "src/**/*.test.tsx",
+          "src/**/*.stories.tsx",
+          "src/setupTests.ts",
+          "src/testUtils.tsx"
+        ]
+      }
+    ],
+    "no-shadow": 0,
+    "@typescript-eslint/no-shadow": [2, { "ignoreTypeValueShadow": true }],
+    "@typescript-eslint/no-misused-promises": [
+      2,
+      {
+        "checksVoidReturn": false
+      }
+    ],
+    "@typescript-eslint/no-floating-promises": 0,
+    "no-redeclare": 0,
+    "@typescript-eslint/no-redeclare": 0,
+    "sort-imports": [
+      2,
+      {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true
+      }
+    ],
+    "import/order": [
+      2,
+      {
+        "alphabetize": {
+          "caseInsensitive": true,
+          "order": "asc"
+        },
+        "groups": ["external", "builtin", "parent", ["sibling", "index"]],
+        "newlines-between": "always",
+        "pathGroups": [
+          {
+            "group": "external",
+            "pattern": "react",
+            "position": "before"
+          },
+          {
+            "group": "external",
+            "pattern": "@my_org/**",
+            "position": "after"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["builtin"]
+      }
+    ]
+  }
+}
